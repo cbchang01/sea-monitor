@@ -2,10 +2,10 @@ import asyncio
 import websockets
 import json
 from supabase import create_client
-from dotenv import load_dotenv
+from dotenv import load_dotenv()
 import os
 
-load_dotenv('/Users/cooperchang/sea-monitor/.env.local')
+load_dotenv()
 
 SUPABASE_URL = os.getenv('NEXT_PUBLIC_SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_KEY')
