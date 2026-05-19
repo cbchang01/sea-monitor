@@ -1,7 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 from supabase import create_client
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
 import os
 
 load_dotenv()
@@ -18,7 +18,6 @@ def fetch_sanctions():
     response = requests.get(OFAC_URL, timeout=30)
     root = ET.fromstring(response.content)
 
-    # Strip namespaces from all tags
     for el in root.iter():
         if '}' in el.tag:
             el.tag = el.tag.split('}', 1)[1]

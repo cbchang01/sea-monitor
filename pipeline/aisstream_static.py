@@ -2,7 +2,7 @@ import asyncio
 import websockets
 import json
 from supabase import create_client
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
 import os
 
 load_dotenv()

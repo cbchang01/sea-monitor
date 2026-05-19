@@ -2,7 +2,7 @@ import asyncio
 import websockets
 import json
 from supabase import create_client
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
 import os
 
 load_dotenv()
@@ -69,6 +69,5 @@ def save_vessels(vessels):
     print(f"Saved {len(vessels)} vessels. Done!")
 
 if __name__ == '__main__':
-    print("Starting...")
     vessels = asyncio.run(fetch_vessels())
     save_vessels(vessels)
