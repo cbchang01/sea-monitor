@@ -45,10 +45,15 @@ def fetch_sanctions():
                 id_type = id_el.find('idType')
                 id_num = id_el.find('idNumber')
                 if id_type is not None and id_num is not None:
-                    if 'IMO' in id_type.text:
-                        imo = id_num.text
-                    if 'MMSI' in id_type.text:
-                        mmsi = id_num.text
+                    val = id_num.text or ''
+                    if 'IMO' in val:
+                        imo = val.replace('IMO', '').strip()
+                    elif 'MMSI' in val:
+                        mmsi = val.replace('MMSI', '').strip()
+                    elif 'IMO' in id_type.text:
+                        imo = val.strip()
+                    elif 'MMSI' in id_type.text:
+                        mmsi = val.strip()
 
         program_list = entry.find('programList')
         if program_list is not None:
